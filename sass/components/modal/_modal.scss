@@ -1,0 +1,127 @@
+@import "search-modal";
+@import "support-modal";
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  transition: all 0.25s;
+  @include media(hover,1381){
+    padding: 80px 0;
+  }
+  @include breakpoints(768,1380){
+    padding: 60px 0;
+  }
+  @include media(screen,767){
+    padding: 44px 0;
+  }
+  &:not(.active) {
+    opacity: 0;
+    pointer-events: none;
+    .support-form,
+    .search-form {
+      transform: scale(1.15);
+    }
+  }
+  &-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    &--actions {
+      display: flex;
+      align-items: center;
+      @include media(hover,1381){
+        height: 80px;
+      }
+      @include breakpoints(768,1380){
+        height: 60px;
+      }
+      @include media(screen,767){
+        height: 44px;
+      }
+    }
+    .content {
+      @include media(screen,1200){
+        padding: 0;
+      }
+    }
+    .logo {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: $yellow;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      @include hover(){
+        background-color: darken($yellow,5);
+      }
+      @include media(hover,1381){
+        width: 264px;
+      }
+      @include breakpoints(768,1380){
+        width: 220px;
+      }
+      @include media(screen,767){
+        width: 140px;
+      }
+      img {
+        height: auto;
+        @include media(hover,1381){
+          width: 195px;
+        }
+        @include breakpoints(768,1380){
+          width: 160px;
+        }
+        @include media(screen,767){
+          width: 115px;
+        }
+      }
+    }
+    .close {
+      .search-modal & {
+        color: $white;
+      }
+      .support-modal & {
+        color: $text;
+      }
+      font-size: $px*3.84rem;
+      background-color: transparent;
+      border: none;
+      margin: 0 $padding;
+
+      transition: all 0.25s;
+      text-align: center;
+      @include hover(){
+        color: $hover;
+      }
+      @include media(hover,1751){
+        width: 110px;
+      }
+      @include breakpoints(1381,1750){
+        width: 90px;
+      }
+      @include breakpoints(1201,1380){
+        width: 75px;
+      }
+    }
+  }
+  &-form {
+    transition: all 0.25s;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+    overflow: auto;
+    & > .content {
+      align-self: center;
+      max-height: 100%;
+    }
+  }
+}

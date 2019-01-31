@@ -1,0 +1,45 @@
+@import "input-text";
+@import "textarea";
+@import "file";
+@import "checkbox";
+@import "submit";
+
+.input-box {
+  display: flex;
+  width: 100%;
+  &.centered {
+    justify-content: center;
+  }
+  &.wrapped {
+    @include media(screen,1024){
+      flex-wrap: wrap;
+    }
+  }
+  &:not(:last-child){
+    margin-bottom: 20px;
+    .subscription-form & {
+      margin-bottom: 30px;
+    }
+  }
+  @include media(hover,681){
+    .col-50 {
+      width: 50%;
+      &:not(:last-child){
+        margin-right: $padding;
+      }
+    }
+  }
+  @include media(screen,680){
+    .col-50 {
+      &:not(:last-child){
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .stretched {
+    .label {
+      height: 100%;
+    }
+  }
+}

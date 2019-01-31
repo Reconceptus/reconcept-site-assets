@@ -1,0 +1,105 @@
+input[type="text"] {
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  .consultation-form & {
+    height: 55px;
+    line-height: 55px;
+    padding: 0 $padding;
+    font-size: $px*3.36rem;
+    background-color: $white;
+    @include media(screen,680){
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+    }
+  }
+  .support-form & {
+    height: 55px;
+    line-height: 55px;
+    padding: 0 $padding;
+    font-size: $px*3.36rem;
+    background-color: $white;
+    border-bottom: 1px solid currentColor;
+    @include media(screen,680){
+      height: 40px;
+      line-height: 40px;
+    }
+  }
+  .article-subscribe & {
+    height: 55px;
+    line-height: 55px;
+    padding: 0 $padding;
+    font-size: $px*3.36rem;
+    background-color: $white;
+    border: 9px solid $hover;
+  }
+  .subscription-form & {
+    text-align: center;
+    border-bottom: 3px solid $violet;
+    font-family: $font-yeseva;
+    background: transparent;
+    @include media(hover,1025){
+      line-height: 128px;
+      height: 128px;
+      padding: 0 $padding 0 $padding+128px;
+      font-size: $px*11.52rem;
+    }
+    @include breakpoints(768,1024){
+      line-height: 80px;
+      height: 80px;
+      padding: 0 $padding;
+      font-size: $px*8rem;
+    }
+    @include media(screen,767){
+      line-height: 40px;
+      height: 40px;
+      padding: 0 15px;
+      font-size: $px*5rem;
+    }
+  }
+  .search-form & {
+    text-align: center;
+    background: transparent;
+
+    font-family: $font-yeseva;
+    color: $white;
+    @include media(hover,1025){
+      line-height: 128px;
+      height: 128px;
+      padding: 0 $padding 0 $padding+128px;
+      font-size: $px*11.52rem;
+      border-bottom: 3px solid $white;
+    }
+    @include breakpoints(768,1024){
+      line-height: 80px;
+      height: 80px;
+      padding: 0 $padding;
+      font-size: $px*8rem;
+      border-bottom: 2px solid $white;
+    }
+    @include media(screen,767){
+      line-height: 40px;
+      height: 40px;
+      padding: 0 15px;
+      font-size: $px*5rem;
+      border-bottom: 1px solid $white;
+    }
+  }
+  .comment-content & {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 $padding;
+    border-bottom: 1px solid currentColor;
+    @include media(screen,680){
+      padding: 0 12px;
+    }
+  }
+  .subscribe-form & {
+    height: 40px;
+    line-height: 40px;
+    padding: 0 $padding;
+    background-color: #eee;
+    border-bottom: 1px solid $violet;
+  }
+}

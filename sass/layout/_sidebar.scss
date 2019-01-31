@@ -1,0 +1,182 @@
+.sidebar {
+  @include media(hover,1381){
+    width: 280px;
+    padding-right: $padding;
+  }
+  @include breakpoints(1025,1380){
+    width: 195px;
+    padding-right: $padding;
+  }
+  @include media(hover,1025){
+    &.fixed {
+      position: fixed;
+      top: 0;
+      .sidebar-main {
+        padding-top: 110px;
+      }
+    }
+    &.bottom {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      .sidebar-main {
+        padding-top: 110px;
+      }
+    }
+    &.fixed,
+    &.bottom {
+      &.subscribe-bar {
+        .sidebar-nav,
+        .search {
+          opacity: 0;
+          pointer-events: none;
+        }
+        .subscribe {
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
+    }
+  }
+  @include media(hover,1751){
+    &.fixed {
+      left: 50%;
+      transform: translateX(-850px);
+    }
+  }
+  @include breakpoints(1025,1750){
+    &.fixed {
+      left: 25px;
+    }
+  }
+  .title {
+    color: #2c2341;
+    font-family: $font-yeseva;
+    line-height: 1.2;
+    font-weight: 500;
+    @include media(hover,1025){
+      font-size: $px*11.52rem;
+      margin-bottom: 20px;
+    }
+    @include breakpoints(768,1024){
+      font-size: $px*8rem;
+    }
+    @include media(screen,767){
+      font-size: $px*7.5rem;
+    }
+  }
+  .search {
+    padding: 0 5px;
+    @include media(hover,1025){
+      margin-bottom: 32px;
+      transition: opacity 0.45s;
+    }
+    &-btn {
+      display: flex;
+      border: none;
+      align-items: center;
+      background: none;
+      color: $violet;
+      font-size: $px*3.36rem;
+      transition: all 0.2s;
+      @include hover(){
+        color: $hover;
+        .ico {
+          box-shadow: 0 0 0 0 $blue inset;
+        }
+      }
+      .ico {
+        width: 40px;
+        height: 40px;
+        background-color: $hover;
+        border-radius: 50%;
+        padding: 10px;
+        margin-right: 13px;
+        transition: all 0.2s;
+        box-shadow: 0 0 0 25px $blue inset;
+        svg {
+          fill: $white;
+        }
+      }
+    }
+  }
+  .subscribe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.45s;
+    @include media(screen,1024){
+      display: none;
+    }
+    &-title {
+      text-transform: uppercase;
+      color: $violet;
+      font-size: $px*3.36rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+    &-text {
+      margin-top: 10px;
+      font-size: $px*3.36rem;
+    }
+  }
+  &-header {
+    @include media(screen,1024){
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+  }
+  &-main {
+    @include media(hover,1025){
+      padding: 0 0 110px;
+    }
+  }
+  &-modules {
+    position: relative;
+  }
+  &-nav {
+    font-size: $px*3.36rem;
+    font-weight: 600;
+    @include media(hover,1025){
+      transition: opacity 0.45s;
+    }
+    @include media(screen,1024){
+      margin-bottom: 40px;
+    }
+    @include media(screen,767){
+      white-space: nowrap;
+      overflow: auto;
+    }
+    ul {
+      @include media(screen,1024){
+        display: flex;
+        align-items: center;
+      }
+    }
+    li {
+      @include media(hover,1025){
+        padding: 0 5px;
+        &:not(:last-child){
+          margin-bottom: 20px;
+        }
+      }
+      @include media(screen,1024){
+        margin-right: $padding;
+      }
+    }
+    a {
+      color: inherit;
+      @include hover(){
+        color: $hover;
+      }
+      &.active {
+        color: $hover;
+      }
+    }
+  }
+}

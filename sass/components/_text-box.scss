@@ -1,0 +1,437 @@
+.text-box {
+  line-height: 1.64;
+  font-weight: 400;
+  @include media(hover,681){
+    font-size: 18px;
+  }
+  @include media(screen,680){
+    font-size: 15px;
+  }
+  * {
+    &::selection {
+      background-color: $yellow;
+    }
+  }
+  &--wrap {
+    @include media(hover,1381){
+      padding: 105px 0;
+      &.md-size {
+        padding-top: 45px;
+      }
+    }
+    @include breakpoints(1201,1380){
+      padding: 80px 0;
+      &.md-size {
+        padding-top: 25px;
+      }
+    }
+    @include breakpoints(1025,1200){
+      padding: 60px 0;
+      &.md-size {
+        padding-top: 15px;
+      }
+    }
+    @include media(screen,1024){
+      padding: 40px 0;
+      &.md-size {
+        padding-top: 0;
+      }
+    }
+  }
+  &--layout {
+    display: flex;
+    width: 100%;
+    @include media(screen,1024){
+      flex-direction: column;
+    }
+    &.first-info {
+      @include media(hover,1201){
+        padding-top: 55px;
+      }
+      @include media(screen,1200){
+        padding-top: 20px;
+      }
+    }
+    &:not(.first-info){
+      @include media(screen,1024){
+        .text-box--aside {
+          order: 1;
+        }
+      }
+    }
+  }
+  &--aside {
+    position: relative;
+    @include media(hover,1381){
+      width: calc(50% - 445px);
+    }
+    @include breakpoints(1201,1380){
+      width: calc(100% - 890px);
+      max-width: 260px;
+    }
+    @include breakpoints(1025,1200){
+      min-width: 80px;
+    }
+    @include media(screen,1024){
+
+    }
+  }
+  &--main {
+    position: relative;
+    @include media(hover,1025){
+      width: 890px;
+      padding: 0 $padding;
+    }
+    @include media(screen,1024){
+      width: 100%;
+    }
+  }
+  &--image {
+    img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+  }
+  &--images {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    .figure {
+
+      @include media(hover,1201){
+        padding: 95px 50px;
+      }
+      @include breakpoints(681,1200){
+        padding: 4vw;
+      }
+      @include media(screen,680){
+        padding: 15px;
+      }
+      @include media(hover,1025){
+        width: calc(50% - 12.5px);
+        margin-top: $padding;
+      }
+      @include breakpoints(681,1024){
+        width: calc(50% - 7.5px);
+        margin-top: 15px;
+      }
+      @include media(hover,681){
+        &:nth-child(1),
+        &:nth-child(2) {
+          margin-top: 0;
+        }
+      }
+      @include media(screen,680){
+        width: 100%;
+        &:not(:first-child){
+          margin-top: 15px;
+        }
+      }
+
+    }
+    img {
+      width: 100%;
+      display: block;
+      height: auto;
+      box-shadow: 0 0 5rem 0 rgba($black,0.6);
+    }
+  }
+
+  blockquote {
+    position: relative;
+    @include media(hover,1025){
+      padding-left: 50px;
+      margin-bottom: 56px;
+      font-size: 22px;
+    }
+    @include breakpoints(681,1024){
+      padding-left: 40px;
+      margin-bottom: 40px;
+      font-size: 20px;
+    }
+    @include media(screen,680){
+      padding-left: 20px;
+      margin-bottom: 40px;
+      font-size: 14px;
+    }
+    &:not(:first-child){
+      margin-top: 65px;
+    }
+    &:before {
+      content: "\201C";
+      color: #c5c3cb;
+      top: 0;
+      font-family: $font-yeseva;
+      position: absolute;
+      @include media(hover,1025){
+        left: -20px;
+        font-size: $px*96rem;
+        line-height: 16rem;
+      }
+      @include breakpoints(681,1024){
+        left: -5px;
+        font-size: 19rem;
+        line-height: 10rem;
+      }
+      @include media(screen,680){
+        left: -5px;
+        font-size: 12rem;
+        line-height: 6rem;
+      }
+    }
+    p {
+      margin: 0;
+      position: relative;
+    }
+  }
+  h2 {
+    font-family: $font-yeseva;
+    font-weight: 500;
+    @include media(hover,681){
+      font-size: 31px;
+      margin-bottom: 26px;
+    }
+    @include media(screen,680){
+      font-size: 24px;
+      margin-bottom: 25px;
+    }
+  }
+  h3 {
+    @include media(hover,681){
+      font-size: 19px;
+      margin-bottom: 20px;
+    }
+    @include media(screen,680){
+      font-size: 17px;
+      margin-bottom: 20px;
+    }
+  }
+  p {
+    margin-bottom: 36px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  a:not(.link) {
+    color: $hover;
+    background-image: linear-gradient(to right, $hover 0%, $hover 100%);
+    background-size: 0 100%;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    padding: 0 1px;
+    @include hover(){
+      color: $white;
+      background-image: linear-gradient(to right, $hover 0%, $hover 100%);
+      background-size: 100% 100%;
+    }
+  }
+  img {
+    user-select: none;
+    &.align-center {
+      position: relative;
+      margin-top: 40px !important;
+      margin-bottom: 40px !important;
+      height: auto;
+      @include media(screen,1024){
+        max-width: 100%;
+      }
+      &:not(.has-width){
+        @include media(hover,1421){
+          width: 1128px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        @include breakpoints(1381,1420){
+          width: 1000px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        @include breakpoints(1201,1380){
+          width: 110%;
+          left: -10%;
+        }
+        @include media(screen,1200){
+          width: 100%;
+        }
+      }
+    }
+    &.align-left {
+      @include media(hover,1421){
+        margin: 0 35px 35px -144px !important;
+        max-width: 50%;
+      }
+      @include breakpoints(1381,1420){
+        margin: 0 35px 35px -100px !important;
+        max-width: 50%;
+      }
+      @include breakpoints(768,1380){
+        margin: 0 20px 20px 0 !important;
+        max-width: 40%;
+      }
+      @include breakpoints(681,767){
+        margin: 0 20px 20px 0 !important;
+        max-width: 40%;
+      }
+      @include media(screen,680){
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        margin: 0 0 20px !important;
+      }
+    }
+    &.align-right {
+
+      @include media(hover,1421){
+        margin: 0 -144px 35px 35px !important;
+        max-width: 50%;
+      }
+      @include breakpoints(1381,1420){
+        margin: 0 -100px 35px 35px !important;
+        max-width: 50%;
+      }
+      @include breakpoints(768,1380){
+        margin: 0 0 20px 20px !important;
+        max-width: 40%;
+      }
+      @include breakpoints(681,767){
+        margin: 0 0 20px 20px !important;
+        max-width: 40%;
+      }
+      @include media(screen,680){
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        margin: 0 0 20px !important;
+      }
+    }
+  }
+  .video {
+    user-select: none;
+    display: block;
+    position: relative;
+    margin: 40px 0;
+    @include media(hover,1421){
+      width: 1128px;
+      height: 564px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @include breakpoints(1381,1420){
+      width: 1000px;
+      height: 500px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    @include breakpoints(1201,1380){
+      width: 110%;
+      left: -10%;
+      padding-top: 55%;
+    }
+    @include media(screen,1200){
+      width: 100%;
+      padding-top: 50%;
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      min-width: 100%;
+      min-height: 100%;
+    }
+  }
+  .read-also {
+    user-select: none;
+    float: left;
+    background-color: $white;
+    padding: $padding;
+    width: 410px;
+    @include media(hover,1751){
+      margin: 35px 35px 35px -284px;
+    }
+    @include breakpoints(1381,1750){
+      margin: 35px 35px 35px -220px;
+    }
+    @include breakpoints(1201,1380){
+      margin: 20px 20px 20px -10%;
+    }
+    @include breakpoints(681,1200){
+      width: 50%;
+      margin: 20px 20px 20px 0;
+    }
+    @include media(screen,680){
+      width: 100%;
+      margin: 40px 0;
+    }
+    &--title {
+      display: block;
+      text-transform: uppercase;
+      color: $violet;
+      font-size: $px*3.36rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .link {
+      font-size: $px*3.84rem;
+      font-weight: 600;
+      color: $blue;
+      @include hover(){
+        color: $hover;
+      }
+    }
+  }
+  .full-width-container {
+    position: relative;
+    left: 50%;
+    width: 100vw;
+    transform: translateX(-50vw);
+  }
+  .article-subscribe {
+    margin: 40px 0;
+    user-select: none;
+  }
+  .fieldset {
+    @include media(screen,680){
+      flex-direction: column;
+      .submit {
+        height: 40px;
+        line-height: 40px;
+      }
+    }
+  }
+  ol {
+    margin-bottom: 36px;
+    counter-reset: item;
+    li {
+      margin-bottom: $padding;
+      padding-left: 45px;
+      position: relative;
+      &:before {
+        content: counter(item, decimal-leading-zero);
+        counter-increment: item;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+  }
+  ul {
+    margin-bottom: 36px;
+    li {
+      margin-bottom: $padding;
+      padding-left: 45px;
+      position: relative;
+      &:before {
+        content: "";
+        position: absolute;
+        top: 13px;
+        left: 0;
+        width: 32px;
+        height: 1px;
+        background-color: currentColor;
+      }
+    }
+  }
+}

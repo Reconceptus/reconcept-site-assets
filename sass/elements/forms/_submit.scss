@@ -1,0 +1,200 @@
+.submit {
+  white-space: nowrap;
+  border: none;
+  height: 55px;
+  line-height: 55px;
+  padding: 0 $padding;
+  position: relative;
+  background-color: $blue;
+  color: $white;
+  font-size: $px*3.36rem;
+  &:before {
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $hover;
+    width: 16px;
+    position: absolute;
+    transition: all 0.25s;
+    @include media(screen,680){
+      display: none;
+    }
+  }
+  span {
+    position: relative;
+  }
+  @include hover(){
+    &:before {
+      width: 100%;
+    }
+  }
+}
+
+.submit-sm {
+  white-space: nowrap;
+  border: none;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 $padding;
+  position: relative;
+  background-color: $blue;
+  color: $white;
+  font-size: $px*3.36rem;
+  &:before {
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $hover;
+    width: 12px;
+    position: absolute;
+    transition: all 0.25s;
+  }
+  @include media(hover,681){
+    &:not(:first-child){
+      margin-left: $padding;
+    }
+  }
+  @include media(screen,680){
+    margin-top: $padding;
+  }
+  span {
+    position: relative;
+  }
+  @include hover(){
+    &:before {
+      width: 100%;
+    }
+  }
+}
+
+.submit-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  height: 40px;
+  width: 40px;
+  position: relative;
+  background-color: $pink;
+  flex-shrink: 0;
+  &:before {
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: $yellow;
+    width: 12px;
+    position: absolute;
+    transition: all 0.25s;
+  }
+  .ico {
+    transition: all 0.25s;
+    position: relative;
+    @include media(hover,1025){
+      width: 50px;
+      height: 30px;
+      transform: translateX(-10px);
+    }
+    @include breakpoints(768,1024){
+      transform: translateX(-10px);
+      width: 50px;
+      height: 30px;
+    }
+    @include media(screen,767){
+      width: 24px;
+      height: 15px;
+      transform: translateX(0);
+    }
+    svg {
+      fill: $white
+    }
+
+  }
+  @include hover(){
+    &:before {
+      width: 100%;
+    }
+    .ico {
+      transform: translateX(0);
+    }
+  }
+}
+
+.submit-btn {
+
+  position: relative;
+  border: none;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include media(hover,1025){
+    width: 128px;
+    height: 128px;
+  }
+  @include breakpoints(768,1024){
+    width: 80px;
+    height: 80px;
+  }
+  @include media(screen,767){
+    width: 40px;
+    height: 40px;
+  }
+  .subscription-form & {
+    background-color: $blue;
+  }
+  .search-form & {
+    background-color: $hover;
+  }
+  &:before {
+    content: "";
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 10px;
+    position: absolute;
+    transition: all 0.25s;
+    .subscription-form & {
+      background-color: $hover;
+    }
+    .search-form & {
+      background-color: $yellow;
+    }
+    @include media(screen,767){
+      display: none;
+    }
+  }
+  .ico {
+    transition: all 0.25s;
+    position: relative;
+
+    svg {
+      fill: $white
+    }
+    @include media(hover,1025){
+      width: 75px;
+      height: 45px;
+      transform: translateX(-20px);
+    }
+    @include breakpoints(768,1024){
+      width: 50px;
+      height: 30px;
+      transform: translateX(-10px);
+    }
+    @include media(screen,767){
+      transform: translateX(0);
+      width: 24px;
+      height: 15px;
+    }
+  }
+  @include hover(){
+    &:before {
+      width: 100%;
+    }
+    .ico {
+      transform: translateX(0);
+    }
+  }
+}

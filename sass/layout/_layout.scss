@@ -1,0 +1,46 @@
+@import "main";
+@import "header";
+@import "footer";
+@import "nav";
+@import "sidebar";
+
+
+.page {
+  @include media(hover,1025){
+    padding: 80px 0;
+  }
+  @include media(screen,1024){
+    padding: 40px 0;
+  }
+  &-layout {
+    display: flex;
+    @include media(screen,1024){
+      flex-direction: column;
+    }
+  }
+  &-sidebar {
+    position: relative;
+    @include media(hover,1381){
+      width: 280px;
+      flex-shrink: 0;
+    }
+    @include breakpoints(1025,1380){
+      width: 195px;
+      flex-shrink: 0;
+    }
+  }
+  &-main-part {
+    width: 100%;
+  }
+  &-notify-part {
+    width: 100%;
+    @include media(hover,1381){
+      max-width: calc(100% - 280px);
+      margin-left: auto;
+    }
+    @include breakpoints(1025,1380){
+      max-width: calc(100% - 195px);
+      margin-left: auto;
+    }
+  }
+}
