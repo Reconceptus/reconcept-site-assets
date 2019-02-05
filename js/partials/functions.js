@@ -110,15 +110,16 @@ project.searchReset = function(){
      ============= fixing aside
     */
 
-project.fixingAside = function(box,boxParent,boxParentHeight,diff){
+project.fixingAside = function(box,boxParent,boxParentHeight,diff,addHeight){
 
-    var difference = diff > 0 ? diff : 0;
+    var difference = diff,
+        additionalHeight = addHeight > 0 ? addHeight : 0;
 
     var $boxOffset = boxParent.offset().top,
         $boxHeight = box.height(),
         maxShareScroll = $boxOffset + boxParentHeight - $boxHeight;
 
-    if(scrollTop < $boxOffset - difference){
+    if(scrollTop < $boxOffset - difference + additionalHeight){
         box.removeClass('fixed bottom');
     }
     else if(scrollTop > maxShareScroll){
@@ -138,10 +139,12 @@ project.fixingAside = function(box,boxParent,boxParentHeight,diff){
 
 project.stickySharing = function(){
     var $sharing = $('.sharing'),
+        $personBox = $sharing.closest('.text-box--aside').find('.person'),
         $shareBox = $sharing.closest('.text-box--layout'),
+        $personBoxHeight = $personBox.height(),
         $shareBoxHeight = $shareBox.height();
 
-    project.fixingAside($sharing,$shareBox,$shareBoxHeight);
+    project.fixingAside($sharing,$shareBox,$shareBoxHeight,0,$personBoxHeight);
 
 };
 
@@ -203,7 +206,21 @@ project.stickySidebar = function(){
 };
 
     /*
-     ============= sticky sidebar
+     ============= person ava in profile
+    */
+
+project.personAva = function(){
+    var $person = $('.text-box--aside .person');
+
+    $person.each(function () {
+        var $textBox = $(this).closest('.text-box--layout');
+        $textBox.prepend($(this).clone());
+    });
+
+};
+
+    /*
+     ============= rotate img
     */
 
 project.rotateImg = function(){
