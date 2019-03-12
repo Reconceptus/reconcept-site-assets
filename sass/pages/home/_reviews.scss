@@ -2,15 +2,32 @@
   margin-bottom: 20px;
   &--main {
     background-color: $grey_light;
-    padding: 100px 0 105px;
+    @include media(hover,1025){
+      padding: 100px 0 105px;
+    }
+    @include breakpoints(801,1024){
+      padding: 60px 0;
+    }
+    @include breakpoints(601,800){
+      padding: 40px 0;
+    }
+    @include media(screen,600){
+      padding: 40px 0;
+    }
   }
   &--slider {
     .owl-dots {
-      width: 400px;
       height: 8px;
-      margin: 40px auto 0;
       background-color: #cfcfcf;
       display: flex;
+      @include media(hover,601){
+        width: 400px;
+        margin: 40px auto 0;
+      }
+      @include media(screen,600){
+        width: 100%;
+        margin: 20px auto 0;
+      }
     }
     .owl-dot {
       width: 100%;
@@ -40,20 +57,61 @@
 .review {
   &--layout {
     display: flex;
-    padding-top: 42px;
+    @include media(hover,1025){
+      padding-top: 42px;
+    }
+    @include media(screen,1024){
+      flex-direction: column;
+    }
   }
   &--aside {
-    width: 25%;
     flex-shrink: 0;
-    padding: 0 10px;
-    font-size: $px*3.84rem;
+
+    @include media(hover,1025){
+      width: 25%;
+      font-size: $px*3.84rem;
+    }
+    @include breakpoints(681,1024){
+      font-size: 1.5rem;
+    }
+    @include media(screen,680){
+      font-size: $px*3.84rem;
+    }
+    @include media(hover,601){
+      padding: 0 10px;
+    }
     .person {
+      @include breakpoints(681,1024){
+        display: flex;
+        align-items: center;
+        padding: 0 40px;
+        margin-bottom: 20px;
+        img {
+          max-width: 200px;
+          margin-right: 25px;
+          flex-shrink: 0;
+        }
+      }
+      @include media(screen,680){
+        padding: 0 0 0 20px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 40px;
+        img {
+          max-width: 100px;
+          margin-right: 15px;
+          flex-shrink: 0;
+          margin-bottom: 0;
+        }
+      }
       img {
         margin-bottom: 26px;
       }
     }
   }
   &--main {
-    padding: 0 10px;
+    @include media(hover,601){
+      padding: 0 10px;
+    }
   }
 }
